@@ -1,0 +1,263 @@
+
+// @import './variable.scss';
+body{
+  background-color: darkslategray!important;
+}
+.nav{
+  margin: 8em 1em 1em 1em;
+}
+.item{
+  width: 100%!important;
+}
+input, textarea{
+  color: black!important;
+  border-radius: 0.5em!important;
+  border: solid 0em rgba($color: #000000, $alpha: 0)!important;
+  width: 100%!important;
+}
+.button-success{
+  background-color: green!important;
+}
+
+.button-fail{
+  background-color: brown!important;
+}
+
+.blur{
+  color: transparent;
+  text-shadow: 0 0 8px #000;
+  padding: 2em;
+}
+.unblur{
+  color: black;
+  text-shadow: 0 0 0 #000;
+  padding: 1em;
+}
+.hide{
+  display: none;
+}
+.card{
+  display: flex;
+  border-radius: 0.5em;
+  transition: 1s;
+  background-color: grey;
+  color: black;
+  h2{
+    color: black;
+    font-weight: bolder;
+  }
+  pre {
+    transition: 1s;
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+   }
+   margin: 1em;
+   padding: 1em;
+}
+// body {
+//   margin: 0;
+//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+//     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+//     sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   background-color: $background-color;
+// }
+
+// .refresh{
+//   margin-top: 0.5em;
+// }
+
+// .btn-box{
+//   margin: 1em;
+//   cursor: pointer;
+// }
+
+// .app-main-section{
+//   padding: 2em 4em 2em 4.5em;
+//   .ant-row{
+//     margin-bottom: 2em;
+//   }
+// }
+
+// .table-container{
+//   width: 100%;
+// }
+
+// #root{
+//   background-color: $background-color;
+//   h1{
+//     color: $text;
+//   }
+// }
+
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+//     monospace;
+// }
+
+// .title{
+//   color: white;
+//   padding: 0.8em;
+// }
+
+// .container{
+//   display: flex;
+//   align-items: start;
+//   flex-direction: column;
+//   padding: 1em 4em 1em 4em;
+//   width: 100%;
+//   /* margin: 1em 8em 1em 8em; */
+//   /* border: 1px solid black; */
+// }
+// .box-container{
+//   background-color: $component-backgroud-color;
+//   border-radius: 0.3em;
+//   h1,h2,h3,h4{
+//     color: white;
+//   }
+
+//   text-align: center;
+//   padding: 1em 3em 1em 3em;
+//   margin: 1em;
+// }
+
+// .button{
+//   margin-right: 1em;
+//   background-color: $button;
+//   border: solid 1px rgba(0,0,0,0)!important;
+//   &:hover{
+//     color: white!important;
+//   }
+// }
+
+// .item{
+//   margin: 0.5em;
+//   /* border: 1px solid black; */
+// }
+
+// h1,h3{
+//   font-weight: bolder;
+// }
+
+// .final-amount{
+//   font-weight: bolder;
+// }
+
+// .required{
+//   color: $error;
+//   font-weight: bolder;
+//   padding-right: 0.5em;
+//   margin-left: -0.9em;
+// }
+
+// .monitoring-item-success{
+//   background-color: $success;
+//   border-radius: 0.4em;
+//   text-align: center;
+//   color: white;
+//   margin: 0.5em;
+//   .ant-row{
+//     margin-bottom: 0!important;
+//   }
+// }
+
+// .monitoring-item-failed{
+//   background-color: $error;
+//   border-radius: 0.4em;
+//   text-align: center;
+//   color: white;
+//   margin: 0.5em;
+//   .ant-row{
+//     margin-bottom: 0!important;
+//   }
+// }
+
+// .component-container{
+//   width: 40em;
+// }
+
+// .ant-menu-dark{
+//   background: $secondary-color;
+// }
+// .ant-menu.ant-menu-sub{
+//   background-color: $primary-color;
+// }
+// .ant-menu-item-selected{
+//   background-color: $secondary-color;
+// }
+// .ant-switch-checked{
+//   background-color: darkslategrey!important;
+// }
+
+// @media (min-width: 575.98px) { 
+//   #login-container{
+//     position: absolute;
+//     top: 2em;
+//   }
+//   #menu{
+//     display: flex;
+//   }
+//   #burger_menu{
+//     display: none;
+//   }
+//   #mobile_menu_open{
+//     display: none;
+//   }
+//   #mobile_menu_close{
+//     display: none;
+//   }
+// }
+
+// @media (max-width: 575.98px) { 
+//   .app-main-section{
+//     .heading{
+//       margin-left: 4em;
+//     }
+//     padding: 2em 0.5em 2em 0.5em;
+//     .ant-row{
+//       margin-bottom: 2em;
+//     }
+//   }
+
+//   #menu{
+//     display: none;
+//   }
+//   .App{
+//     margin-top: -1.3em;
+//   }
+//   .table-container{
+//     overflow-x: scroll;
+//   }
+//   #burger_menu{
+//     display: block;
+//     padding: 1em 0 0 1em;
+//     font-size: 20px;
+//     cursor: pointer;
+//     position: fixed;
+//     top: 0;
+//     z-index: 10000;
+//   }
+
+//   .chart{
+//     display: none;
+//   }
+
+//   #mobile_menu_open{
+//     transition: 1s;
+//     display: block;
+//     background-color: $primary-color;
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//   }
+//   #mobile_menu_close{
+//     transition: 1s;
+//     display: none;
+//   }
+// }

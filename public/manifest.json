@@ -1,0 +1,8 @@
+{
+  "short_name": "Trading Bot",
+  "name": "Trading Bot Dashboard",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffff",
+  "background_color": "#000c17"
+}
