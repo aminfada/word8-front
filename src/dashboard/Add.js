@@ -10,11 +10,14 @@ function Add() {
     const [IsLoading, setIsLoading] = useState(false);
     const [Title, setTitle] = useState("");
     const [Description, setDescription] = useState("");
+    const [Id, setId] = useState(0);
    
+
     const SubmitWord = ()=>{
       setIsLoading(true)
       let vase_url = "https://word8-api.abcalgo.com/" 
       axios.post(vase_url+`v1/vocab`,{
+        id: Id,
         title: Title,
         description: Description,
       },{ headers: { Authorization: localStorage.getItem("token") } })
@@ -42,11 +45,15 @@ function Add() {
           });
         }
       })   
-      
     }
     
 
     useEffect(() => {
+      if (localStorage.getItem("edit_title").length > 0) {
+        setTitle(localStorage.getItem("edit_title"))
+        setDescription(localStorage.getItem("edit_description"))
+        setId(localStorage.getItem("edit_id"))
+      }
     }, []);
   
 

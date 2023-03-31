@@ -51,6 +51,12 @@ function Home() {
       
     }
 
+    const EditWord = ()=>{
+      localStorage.setItem("edit_title", Title)
+      localStorage.setItem("edit_description", Description)
+      localStorage.setItem("edit_id", Id)
+      history.push("/add")
+    }
 
     const SubmitFeedback = (e)=>{
       setIsLoading(true)
@@ -109,6 +115,9 @@ function Home() {
               </Button>
               <Button className={"button"}>
                 <h3 onClick={DrawWord}>Fetch</h3>
+              </Button>
+              <Button className={"button"}>
+                <h3 onClick={EditWord}>Edit</h3>
               </Button>
             </Row>
             <Row className={IsHide ? "hide" : "card"}>
