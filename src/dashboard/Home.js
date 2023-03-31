@@ -13,6 +13,7 @@ function Home() {
     const [Id, setId] = useState(0);
     const [IsBlur, setIsBlur] = useState(true);
     const [IsHide, setIsHide] = useState(false);
+    const [IsFeedbackHide, setIsFeedbackHide] = useState(false);
     const [Description, setDescription] = useState("");
    
     const timeout = (delay) => {
@@ -20,6 +21,7 @@ function Home() {
     }
 
     const DrawWord = async()=>{
+      setIsFeedbackHide(false)
       setIsHide(true)
       setIsLoading(true)
       setIsBlur(true)
@@ -68,7 +70,7 @@ function Home() {
       },{ headers: { Authorization: localStorage.getItem("token") } })
       .then(res => {
         setIsLoading(false)
-        setIsHide(true)
+        setIsFeedbackHide(true)
         setIsBlur(false)
         if (res.status){
           notification["success"]({
@@ -126,7 +128,7 @@ function Home() {
               <pre className={IsBlur ? "blur" : "unblur"}>{Description}</pre>
             </Row>
 
-            <Row align={"middle"} justify={"space-around"} className={IsHide ? "feedback hide" : "feedback"}>
+            <Row align={"middle"} justify={"space-around"} className={IsFeedbackHide ? "feedback hide" : "feedback"}>
               <Button onClick={()=>SubmitFeedback(true)} className={"button button-success"}>
                 <h3><CheckOutlined/></h3>
               </Button>
