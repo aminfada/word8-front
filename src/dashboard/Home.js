@@ -68,6 +68,7 @@ function Home() {
       },{ headers: { Authorization: localStorage.getItem("token") } })
       .then(res => {
         setIsLoading(false)
+        setIsHide(true)
         setIsBlur(false)
         if (res.status){
           notification["success"]({
@@ -125,7 +126,7 @@ function Home() {
               <pre className={IsBlur ? "blur" : "unblur"}>{Description}</pre>
             </Row>
 
-            <Row align={"middle"} justify={"space-around"} className={"feedback"}>
+            <Row align={"middle"} justify={"space-around"} className={IsHide ? "feedback hide" : "feedback"}>
               <Button onClick={()=>SubmitFeedback(true)} className={"button button-success"}>
                 <h3><CheckOutlined/></h3>
               </Button>
