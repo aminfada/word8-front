@@ -22,6 +22,9 @@ function Add() {
         description: Description,
       },{ headers: { Authorization: localStorage.getItem("token") } })
       .then(res => {
+        localStorage.setItem("edit_title", "")
+        localStorage.setItem("edit_description", "")
+        localStorage.setItem("edit_id", 0)
         setIsLoading(false)
         history.push("/home");
         if (res.status){
