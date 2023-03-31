@@ -17,7 +17,7 @@ function Add() {
       setIsLoading(true)
       let vase_url = "https://word8-api.abcalgo.com/" 
       axios.post(vase_url+`v1/vocab`,{
-        id: Id,
+        id: parseInt(Id,10),
         title: Title,
         description: Description,
       },{ headers: { Authorization: localStorage.getItem("token") } })
