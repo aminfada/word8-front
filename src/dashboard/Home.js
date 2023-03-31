@@ -26,7 +26,7 @@ function Home() {
       await timeout(1000);
       setIsHide(false)
       setIsLoading(false)
-      let vase_url = "https://word8.abcalgo.com/" 
+      let vase_url = "https://word8-api.abcalgo.com/" 
       axios.get(vase_url + `v1/vocab`,{ headers: { Authorization: localStorage.getItem("token") } })
       .then(res => {
         let data = res.data;
@@ -54,7 +54,7 @@ function Home() {
 
     const SubmitFeedback = (e)=>{
       setIsLoading(true)
-      let vase_url = "https://word8.abcalgo.com/" 
+      let vase_url = "https://word8-api.abcalgo.com/" 
       axios.put(vase_url+`v1/vocab`,{
         id: Id,
         success: e,

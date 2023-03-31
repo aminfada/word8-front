@@ -1,6 +1,6 @@
-FROM node:10.15.2-alpine AS builder
+FROM node:12.22.12-alpine AS builder
 COPY . .
-RUN npm i verbose
+RUN npm install
 RUN npm run build
 
 FROM nginx:mainline

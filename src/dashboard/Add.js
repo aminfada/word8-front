@@ -13,7 +13,7 @@ function Add() {
    
     const SubmitWord = ()=>{
       setIsLoading(true)
-      let vase_url = "https://word8.abcalgo.com/" 
+      let vase_url = "https://word8-api.abcalgo.com/" 
       axios.post(vase_url+`v1/vocab`,{
         title: Title,
         description: Description,
