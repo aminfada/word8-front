@@ -113,19 +113,19 @@ function Home() {
       return (
           <div className={"app-main-section"}>
             <Row align={"middle"} justify={"center"} className={"nav"}>
-              <Button className={"button"}>
-                <h3 onClick={()=>{history.push("/add")}}>Add</h3>
+              <Button onClick={()=>{history.push("/add")}} className={"button"}>
+                <h3>Add</h3>
               </Button>
-              <Button className={"button"}>
-                <h3 onClick={DrawWord}>Fetch</h3>
+              <Button onClick={DrawWord} className={"button"}>
+                <h3>Fetch</h3>
               </Button>
-              <Button className={"button"}>
-                <h3 onClick={EditWord}>Edit</h3>
+              <Button onClick={EditWord} className={"button"}>
+                <h3>Edit</h3>
               </Button>
             </Row>
             <Row className={IsHide ? "hide" : "card"}>
               <h2>{Title}</h2>
-              <pre className={IsBlur ? "blur" : "unblur"}>{Description}</pre>
+              <pre onClick={setIsBlur(false)} className={IsBlur ? "blur" : "unblur"}>{Description}</pre>
             </Row>
 
             <Row align={"middle"} justify={"space-around"} className={IsFeedbackHide ? "feedback hide" : "feedback"}>

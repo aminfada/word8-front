@@ -72,8 +72,8 @@ function Add() {
       return (
           <div className={"app-main-section"}>
             <Row align={"middle"} justify={"center"} className={"nav"}>
-              <Button className={"button"}>
-                <h3 onClick={()=>{history.push("/home")}}>Home</h3>
+              <Button onClick={()=>{history.push("/home")}} className={"button"}>
+                <h3>Home</h3>
               </Button>
             </Row>
 
@@ -86,8 +86,8 @@ function Add() {
             </Row>
             </Row>
             <Row align={"middle"} justify={"center"} className={"nav"}>
-            <Button className={"button"}>
-              <h3 onClick={SubmitWord}>Add</h3>
+            <Button onClick={SubmitWord} className={"button"}>
+              <h3>Add</h3>
             </Button>
             </Row>
           </div>
