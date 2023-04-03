@@ -1,20 +1,23 @@
 import 'antd/dist/antd.dark.css'
-import { Row, Spin, notification, Button } from 'antd';
+import { Row, Col, Spin, notification, Button } from 'antd';
 import React, { useEffect, useState }  from "react";
 import axios from 'axios';
 import { BrowserRouter, Route, withRouter, Switch as SwitchRoute, useHistory } from "react-router-dom";
-import { CheckOutlined,CloseOutlined } from '@ant-design/icons';
-
+import { CheckOutlined,CloseOutlined,SoundOutlined } from '@ant-design/icons';
+import Sound from 'react-sound';
 
 function Home() {
     const history = useHistory();
     const [IsLoading, setIsLoading] = useState(false);
     const [Title, setTitle] = useState("");
     const [Id, setId] = useState(0);
-    const [IsBlur, setIsBlur] = useState(true);
+    const [IsTitleBlur, setIsTitleBlur] = useState(true);
+    const [IsDescriptionBlur, setIsDescriptionBlur] = useState(true);
     const [IsHide, setIsHide] = useState(false);
     const [IsFeedbackHide, setIsFeedbackHide] = useState(false);
     const [Description, setDescription] = useState("");
+    const [IsPlayingSpeech, setIsPlayingSpeech] = useState(false);
+    
    
     const timeout = (delay) => {
       return new Promise( res => setTimeout(res, delay) );
@@ -24,7 +27,8 @@ function Home() {
       setIsFeedbackHide(false)
       setIsHide(true)
       setIsLoading(true)
-      setIsBlur(true)
+      setIsTitleBlur(true)
+      setIsDescriptionBlur(true)
       await timeout(1000);
       setIsHide(false)
       setIsLoading(false)
@@ -36,6 +40,7 @@ function Home() {
         setTitle(data.title)
         setDescription(data.description)
         setIsLoading(false)
+        setIsPlayingSpeech(true)
       }).catch((error) => {
         if (error.response != undefined) {
           if (error.response.status == 401) {
@@ -71,7 +76,8 @@ function Home() {
       .then(res => {
         setIsLoading(false)
         setIsFeedbackHide(true)
-        setIsBlur(false)
+        setIsTitleBlur(false)
+        setIsDescriptionBlur(false)
         if (res.status){
           notification["success"]({
             message: "Success",
@@ -112,6 +118,12 @@ function Home() {
     } else{
       return (
           <div className={"app-main-section"}>
+            <Sound
+              url="https://word8-api.abcalgo.com/v1/speech"
+              playStatus={IsPlayingSpeech ? "PLAYING" : "STOPPED"}
+              playFromPosition={0 /* in milliseconds */}
+              onFinishedPlaying={()=>setIsPlayingSpeech(false)}
+            />
             <Row align={"middle"} justify={"center"} className={"nav"}>
               <Button onClick={()=>{history.push("/add")}} className={"button"}>
                 <h3>Add</h3>
@@ -124,8 +136,9 @@ function Home() {
               </Button>
             </Row>
             <Row className={IsHide ? "hide" : "card"}>
-              <h2>{Title}</h2>
-              <pre onClick={setIsBlur(false)} className={IsBlur ? "blur" : "unblur"}>{Description}</pre>
+              <Col onClick={()=>setIsTitleBlur(false)}><h2 className={IsTitleBlur ? "blur" : "unblur"}>{Title}</h2></Col>
+              <Col className={"speech"}><SoundOutlined onClick={()=>setIsPlayingSpeech(true)}/></Col>
+              <pre onClick={()=>setIsDescriptionBlur(false)} className={IsDescriptionBlur ? "blur" : "unblur"}>{Description}</pre>
             </Row>
 
             <Row align={"middle"} justify={"space-around"} className={IsFeedbackHide ? "feedback hide" : "feedback"}>

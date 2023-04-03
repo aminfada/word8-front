@@ -3,6 +3,10 @@
 body{
   background-color: darkslategray!important;
 }
+.speech{
+  font-size: 20px;
+  padding: 1em 0 0 0.1em;
+}
 .nav{
   margin: 8em 1em 1em 1em;
 }
@@ -43,7 +47,12 @@ input, textarea{
   background-color: grey;
   color: black;
   h2{
-    color: black;
+    transition: 1s;
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
     font-weight: bolder;
   }
   pre {
