@@ -40,7 +40,6 @@ function Home() {
         setTitle(data.title)
         setDescription(data.description)
         setIsLoading(false)
-        setIsPlayingSpeech(true)
       }).catch((error) => {
         if (error.response != undefined) {
           if (error.response.status == 401) {
