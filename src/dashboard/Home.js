@@ -40,8 +40,8 @@ function Home() {
         setId(data.id)
         setTitle(data.title)
         setDescription(data.description)
-        setTotalCoverage(data.TotalCoverage)
-        setDailyActivity(data.DailyActivity)
+        setTotalCoverage(data.coverage)
+        setDailyActivity(data.total_activity)
         setIsLoading(false)
       }).catch((error) => {
         if (error.response != undefined) {
