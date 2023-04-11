@@ -3,6 +3,13 @@
 body{
   background-color: darkslategray!important;
 }
+.stats{
+  color: #000;
+  font-weight: bold;
+  div{
+    padding: 1em;
+  }
+}
 .speech{
   font-size: 20px;
   padding: 1em 0 0 0.1em;

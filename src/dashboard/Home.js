@@ -17,7 +17,8 @@ function Home() {
     const [IsFeedbackHide, setIsFeedbackHide] = useState(false);
     const [Description, setDescription] = useState("");
     const [IsPlayingSpeech, setIsPlayingSpeech] = useState(false);
-    
+    const [TotalCoverage, setTotalCoverage] = useState(0);
+    const [DailyActivity, setDailyActivity] = useState(0);
    
     const timeout = (delay) => {
       return new Promise( res => setTimeout(res, delay) );
@@ -39,6 +40,8 @@ function Home() {
         setId(data.id)
         setTitle(data.title)
         setDescription(data.description)
+        setTotalCoverage(data.TotalCoverage)
+        setDailyActivity(data.DailyActivity)
         setIsLoading(false)
       }).catch((error) => {
         if (error.response != undefined) {
@@ -118,11 +121,15 @@ function Home() {
       return (
           <div className={"app-main-section"}>
             <Sound
-              url="https://word8-api.abcalgo.com/v1/speech"
+              url={"https://word8-api.abcalgo.com/v1/speech?time="+Date.now()}
               playStatus={IsPlayingSpeech ? "PLAYING" : "STOPPED"}
               playFromPosition={0 /* in milliseconds */}
               onFinishedPlaying={()=>setIsPlayingSpeech(false)}
             />
+            <Row align={"middle"} justify={"end"} className={"stats"}>
+              <Col>total coverage: {TotalCoverage}</Col>
+              <Col>daily activity: {DailyActivity}</Col>
+            </Row>
             <Row align={"middle"} justify={"center"} className={"nav"}>
               <Button onClick={()=>{history.push("/add")}} className={"button"}>
                 <h3>Add</h3>
@@ -130,7 +137,7 @@ function Home() {
               <Button onClick={DrawWord} className={"button"}>
                 <h3>Fetch</h3>
               </Button>
-              <Button onClick={EditWord} className={"button"}>
+              <Button disabled={IsFeedbackHide ? false : true} onClick={EditWord} className={"button"}>
                 <h3>Edit</h3>
               </Button>
             </Row>
@@ -140,11 +147,11 @@ function Home() {
               <pre onClick={()=>setIsDescriptionBlur(false)} className={IsDescriptionBlur ? "blur" : "unblur"}>{Description}</pre>
             </Row>
 
-            <Row align={"middle"} justify={"space-around"} className={IsFeedbackHide ? "feedback hide" : "feedback"}>
-              <Button onClick={()=>SubmitFeedback(true)} className={"button button-success"}>
+            <Row align={"middle"} justify={"space-around"} className={"feedback"}>
+              <Button disabled={IsFeedbackHide ? true : false} onClick={()=>SubmitFeedback(true)} className={"button button-success"}>
                 <h3><CheckOutlined/></h3>
               </Button>
-              <Button onClick={()=>SubmitFeedback(false)} className={"button button-fail"}>
+              <Button disabled={IsFeedbackHide ? true : false} onClick={()=>SubmitFeedback(false)} className={"button button-fail"}>
                 <h3><CloseOutlined/></h3>
               </Button>
             </Row>
