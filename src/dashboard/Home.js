@@ -41,7 +41,7 @@ function Home() {
         setTitle(data.title)
         setDescription(data.description)
         setTotalCoverage(data.coverage)
-        setDailyActivity(data.total_activity)
+        setDailyActivity(data.today_activity)
         setIsLoading(false)
       }).catch((error) => {
         if (error.response != undefined) {
