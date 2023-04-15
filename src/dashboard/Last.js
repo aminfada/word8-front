@@ -13,7 +13,7 @@ function Last() {
 
     const GetLastWords = ()=>{
       setIsLoading(true)
-      let vase_url = "http://127.0.0.1:8080/" 
+      let vase_url = "https://word8-api.abcalgo.com/" 
       axios.get(vase_url + `v1/vocab/last`,{ headers: { Authorization: localStorage.getItem("token") } })
       .then(res => {
         let data = res.data;
