@@ -131,6 +131,9 @@ function Home() {
               <Col>daily activity: {DailyActivity}</Col>
             </Row>
             <Row align={"middle"} justify={"center"} className={"nav"}>
+              <Button onClick={()=>{history.push("/last")}} className={"button"}>
+                <h3>Last</h3>
+              </Button>
               <Button onClick={()=>{history.push("/add")}} className={"button"}>
                 <h3>Add</h3>
               </Button>

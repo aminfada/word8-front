@@ -4,7 +4,7 @@ import React, { useEffect, useState,Suspense }  from "react";
 import { BrowserRouter, Route, withRouter, Switch as SwitchRoute, useHistory } from "react-router-dom";
 import Home from './dashboard/Home';
 import Add from './dashboard/Add';
-
+import Last from './dashboard/Last';
 
 function App() {
   const history = useHistory();
@@ -27,6 +27,11 @@ function App() {
                   key="2"
                   path={"/add"}
                   component={Add}
+                />
+                 <Route
+                  key="3"
+                  path={"/last"}
+                  component={Last}
                 />
               </SwitchRoute>
           </Col>
